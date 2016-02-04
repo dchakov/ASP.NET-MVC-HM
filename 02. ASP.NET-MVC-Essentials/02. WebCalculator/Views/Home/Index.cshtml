@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h3>
+            <img src="http://sf.gwebtools.com/images/icons/binaryIcon.png" alt="Alternate Text" />
+            Bit Calculator
+        </h3>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("Quantity", "Quantity: ")
+                @Html.TextBox("Quantity", "1", new { @class = "form-control" })
+            </div>
+
+            <div>
+                @Html.Label("Type", "Type: ")
+                @Html.DropDownList("Types", null, new { @class = "form-control" })
+            </div>
+
+            <div>
+                @Html.Label("Kilo", "Kilo: ")
+                @Html.DropDownList("Kilo", null, new { @class = "form-control" })
+            </div>
+            <input type="submit" value="GO" class="btn btn-primary" />
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-10">
+        <p>@ViewBag.Storage</p>
+        @if (ViewBag.Result != null)
+            {
+            <table class="table table-hover table-condensed">
+                @for (int i = 0; i < ViewBag.Result.Count; i++)
+                {
+                    <tr>
+                        <td>@ViewBag.Result[i].Name</td>
+                        <td>@ViewBag.Result[i].Size</td>
+                    </tr>
+                }
+            </table>
+        }
+
+    </div>
+</div>
+

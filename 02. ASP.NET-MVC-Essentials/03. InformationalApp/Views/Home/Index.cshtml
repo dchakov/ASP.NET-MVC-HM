@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div>
+    <div class="jumbotron">
+        <h2>Index</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Body</h2>
+        </div>
+        <div class="col-md-4">
+            @section SectionInfo{
+                <h4>
+                    Section information
+                </h4>
+                <p>For custom route type: localhost:...../CustomRoute/UserName</p>
+            }
+        </div>
+        <div class="col-md-4">
+            @Html.Partial("_CustomPartial")
+        </div>
+    </div>
+</div>
+
+
