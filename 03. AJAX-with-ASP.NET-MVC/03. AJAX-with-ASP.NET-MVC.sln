@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp", "MoviesApp\MoviesApp.csproj", "{E8DC8558-D3F4-4B80-B644-E8D283E8D175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Models", "Movies.Models\Movies.Models.csproj", "{9A4F0DFF-8FFF-4861-958B-BAD93E6A25BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Data", "Movies.Data\Movies.Data.csproj", "{BFE99431-2574-4030-8006-F16E6745958D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8DC8558-D3F4-4B80-B644-E8D283E8D175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8DC8558-D3F4-4B80-B644-E8D283E8D175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8DC8558-D3F4-4B80-B644-E8D283E8D175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8DC8558-D3F4-4B80-B644-E8D283E8D175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4F0DFF-8FFF-4861-958B-BAD93E6A25BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4F0DFF-8FFF-4861-958B-BAD93E6A25BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4F0DFF-8FFF-4861-958B-BAD93E6A25BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4F0DFF-8FFF-4861-958B-BAD93E6A25BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE99431-2574-4030-8006-F16E6745958D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE99431-2574-4030-8006-F16E6745958D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE99431-2574-4030-8006-F16E6745958D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE99431-2574-4030-8006-F16E6745958D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

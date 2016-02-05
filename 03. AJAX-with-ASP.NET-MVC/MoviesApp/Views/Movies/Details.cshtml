@@ -1,0 +1,74 @@
+﻿@model Movies.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeadMaleActorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeadMaleActor.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeadFemaleActorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeadFemaleActor.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
