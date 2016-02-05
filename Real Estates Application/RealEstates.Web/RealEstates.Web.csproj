@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -278,6 +279,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RealEstates.Common\RealEstates.Common.csproj">
+      <Project>{a252ed90-1cb0-4e97-8a01-27c51adcccc8}</Project>
+      <Name>RealEstates.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RealEstates.Data\RealEstates.Data.csproj">
       <Project>{0c126348-7c33-4a17-b2ac-5b97023e72d1}</Project>
       <Name>RealEstates.Data</Name>
