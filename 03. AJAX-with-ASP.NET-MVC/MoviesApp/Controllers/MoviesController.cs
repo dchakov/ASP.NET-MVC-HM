@@ -47,7 +47,7 @@ namespace MoviesApp.Controllers
 
             ViewBag.Actors = db.Actors.ToList();
 
-            return View();
+            return this.View("_Create");
         }
 
         // POST: Movies/Create

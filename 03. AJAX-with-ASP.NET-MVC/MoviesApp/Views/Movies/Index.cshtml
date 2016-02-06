@@ -2,22 +2,24 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new AjaxOptions()
-{
-    HttpMethod = "GET",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "create-movie"
+    @Ajax.ActionLink("Create New", "Create", null,
+    new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "create-movie"
 
-}, new { @class = "btn btn-primary" })
+    }, new { @class = "btn btn-primary" })
 </p>
-<div id="create-movie"> </div>
-<div id="edit-movie"> </div>
-<div id="details-movie"> </div>
+<div id="create-movie"></div>
+<div id="edit-movie"></div>
+<div id="details-movie"></div>
 <div id="delete-movie"></div>
 
 <table class="table">
@@ -38,10 +40,10 @@
             @Html.DisplayNameFor(model => model.Year)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LeadMaleActorId)
+            @Html.DisplayNameFor(model => model.LeadMaleActor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LeadFemaleActorId)
+            @Html.DisplayNameFor(model => model.LeadFemaleActor)
         </th>
         <th></th>
     </tr>
@@ -71,21 +73,21 @@
                 @Html.DisplayFor(modelItem => item.LeadFemaleActor.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Edit", "Edit", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "GET",
                InsertionMode = InsertionMode.Replace,
                UpdateTargetId = "edit-movie"
 
            }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Details", "Details", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "GET",
                InsertionMode = InsertionMode.Replace,
                UpdateTargetId = "details-movie"
 
            }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "GET",
                InsertionMode = InsertionMode.Replace,
