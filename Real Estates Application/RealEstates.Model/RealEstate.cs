@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using Common.Constants;
     using System.ComponentModel.DataAnnotations.Schema;
+
     public class RealEstate
     {
         private ICollection<Comment> comments;

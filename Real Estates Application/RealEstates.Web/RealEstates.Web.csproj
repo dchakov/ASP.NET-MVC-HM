@@ -121,6 +121,14 @@
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StructureMap, Version=4.0.1.318, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.4.0.1.318\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=4.0.1.318, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.4.0.1.318\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -247,15 +255,30 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
+    <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PrincipalExtensions.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Infrastructure\Identity\CurrentUser.cs" />
+    <Compile Include="Infrastructure\Identity\ICurrentUser.cs" />
     <Compile Include="Infrastructure\Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mappings\IMapFrom.cs" />
+    <Compile Include="Infrastructure\ObjectFactory.cs" />
+    <Compile Include="Infrastructure\Registries\MvcRegistry.cs" />
+    <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -275,6 +298,24 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_AdminMenu.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

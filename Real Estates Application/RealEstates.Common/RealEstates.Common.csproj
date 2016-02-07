@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Constants\Assemblies.cs" />
     <Compile Include="Constants\CommentConstants.cs" />
+    <Compile Include="Constants\GlobalConstants.cs" />
     <Compile Include="Constants\RealEstateConstants.cs" />
     <Compile Include="Constants\UserConstants.cs" />
     <Compile Include="Constants\WebConstants.cs" />
