@@ -2,6 +2,7 @@
 {
     using Common.Constants;
     using Helpers;
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Web.Controllers;
 
@@ -12,7 +13,8 @@
         [ChildActionOnly]
         public ActionResult Menu()
         {
-            return this.PartialView("_AdminMenu", AdminMenu.Items);
+            IEnumerable<string> Items = new List<string>() { "RealEstates", "Comments", "Cities", "Users" };
+            return this.PartialView("_AdminMenu", Items);
         }
     }
 }

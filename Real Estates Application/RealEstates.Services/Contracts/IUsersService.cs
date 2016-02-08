@@ -10,5 +10,7 @@
         IQueryable<User> GetAll();
 
         void Rate(Rating rating);
+
+        User GetByUserId(string Id);
     }
 }

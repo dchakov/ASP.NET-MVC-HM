@@ -35,5 +35,10 @@
             this.ratings.Add(rating);
             this.ratings.SaveChanges();
         }
+
+        public User GetByUserId(string Id)
+        {
+            return this.users.All().Where(u => u.Id == Id).FirstOrDefault();
+        }
     }
 }

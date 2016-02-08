@@ -21,9 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("My Profile", "MyProfile", "UserProfile", new { area = "" }, new { @class = "navbar-brand" })
+                    }
                     @if (User.IsInRole("Administrator"))
                     {
                         @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration" })
