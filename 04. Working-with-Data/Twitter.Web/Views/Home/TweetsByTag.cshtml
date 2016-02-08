@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Twitter.Web.Models.TweetViewModel>
+@{
+    ViewBag.Title = "TweetsByTag";
+}
+
+<h2>TweetsByTag</h2>
+<h4>Last Cached @DateTime.Now</h4>
+<ul>
+    @foreach (var tweet in Model)
+    {
+        <li>
+            <span>@tweet.CreatedOn </span>
+            <span>@tweet.Message</span>
+            <span>@tweet.User</span>
+        </li>
+    }
+</ul>

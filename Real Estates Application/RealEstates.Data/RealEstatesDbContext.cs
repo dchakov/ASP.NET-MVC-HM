@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using RealEstates.Model;
-
+    using System.Data.Entity.ModelConfiguration.Conventions;
     public class RealEstatesDbContext : IdentityDbContext<User>, IRealEstatesDbContext
     {
         public RealEstatesDbContext()
@@ -25,6 +25,14 @@
         public static RealEstatesDbContext Create()
         {
             return new RealEstatesDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
     }
 }
