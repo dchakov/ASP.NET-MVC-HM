@@ -23,21 +23,6 @@
         <th></th>
     </tr>
 
-@(Html.Kendo().Grid((IEnumerable<Twitter.Models.Tweet>)ViewBag.Tweets) //Bind the grid to ViewBag.Products
-      .Name("grid")
-      .Columns(columns =>
-      {
-          // Create a column bound to the ProductID property
-          columns.Bound(modelItem => modelItem.User.Email);
-          // Create a column bound to the ProductName property
-          columns.Bound(modelItem => modelItem.Message);
-          // Create a column bound to the UnitsInStock property
-          columns.Bound(modelItem => modelItem.CreatedOn);
-      })
-      .Pageable() // Enable paging
-      .Sortable() // Enable sorting
-)
-
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -59,3 +44,17 @@
 
 </table>
 
+@(Html.Kendo().Grid((IEnumerable<Twitter.Models.Tweet>)ViewBag.Tweets) //Bind the grid to ViewBag.Products
+      .Name("grid")
+      .Columns(columns =>
+      {
+          // Create a column bound to the ProductID property
+          columns.Bound(modelItem => modelItem.User.Email);
+          // Create a column bound to the ProductName property
+          columns.Bound(modelItem => modelItem.Message);
+          // Create a column bound to the UnitsInStock property
+          columns.Bound(modelItem => modelItem.CreatedOn);
+      })
+      .Pageable() // Enable paging
+      .Sortable() // Enable sorting
+)

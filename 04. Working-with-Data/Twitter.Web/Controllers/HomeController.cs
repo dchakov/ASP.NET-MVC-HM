@@ -104,19 +104,11 @@
         [Authorize]
         public ActionResult MyProfile()
         {
-            var id = User.Identity.GetUserId();
+            var currentUserId = User.Identity.GetUserId();
 
-            if (id != null)
+            if (currentUserId != null)
             {
-                var appUser = this.Data.Users.GetById(id);
-                UserPageViewModel vm = new UserPageViewModel()
-                {
-                    Username = appUser.UserName,
-                    Tweets = appUser.Tweets.OrderByDescending(x => x.CreatedOn).ToList(),
-                    Tweet = new Tweet()
-                };
-
-                return View("UserPage", vm);
+                return RedirectToAction("UserPage", new { id = currentUserId });
             }
             else
             {
