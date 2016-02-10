@@ -47,7 +47,7 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public int Bedrooms { get; set; }
+        public int? Bedrooms { get; set; }
 
         public double SquareMeter { get; set; }
 

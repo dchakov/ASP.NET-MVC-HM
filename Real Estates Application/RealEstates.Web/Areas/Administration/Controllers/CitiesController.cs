@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using RealEstates.Data;
-using RealEstates.Model;
-
-namespace RealEstates.Web.Areas.Administration.Controllers
+﻿namespace RealEstates.Web.Areas.Administration.Controllers
 {
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Net;
+    using System.Web.Mvc;
+    using RealEstates.Data;
+    using RealEstates.Model;
+
     public class CitiesController : Controller
     {
         private RealEstatesDbContext db = new RealEstatesDbContext();

@@ -7,6 +7,7 @@
         [Key]
         public int Id { get; set; }
 
+        [StringLength(255)]
         public string FileName { get; set; }
 
         public string ImageUrl { get; set; }

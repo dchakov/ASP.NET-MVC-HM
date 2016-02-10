@@ -85,7 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CitiesService.cs" />
     <Compile Include="CommentsService.cs" />
+    <Compile Include="Contracts\ICitiesService.cs" />
     <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\IRealEstatesService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />

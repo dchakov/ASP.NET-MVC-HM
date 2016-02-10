@@ -8,7 +8,7 @@
             <img src="http://sf.gwebtools.com/images/icons/binaryIcon.png" alt="Alternate Text" />
             Bit Calculator
         </h3>
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new {id= "claculatorForm" }))
         {
             <div>
                 @Html.Label("Quantity", "Quantity: ")
@@ -48,3 +48,10 @@
     </div>
 </div>
 
+@section scripts{
+    <script>
+        function changed() {
+            $("#claculatorForm").submit();
+        }
+    </script>
+}

@@ -282,8 +282,12 @@
     <Compile Include="Infrastructure\Registries\MvcRegistry.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Home\CityViewModel.cs" />
+    <Compile Include="Models\Home\HomePageViewModel.cs" />
+    <Compile Include="Models\Home\RealEstatesViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User\UserPageViewModel.cs" />
+    <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -368,7 +372,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UserProfile\UserPage.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
   </ItemGroup>
   <ItemGroup>
