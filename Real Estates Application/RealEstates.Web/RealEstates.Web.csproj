@@ -259,8 +259,6 @@
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
-    <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
-    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -284,6 +282,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Home\CityViewModel.cs" />
     <Compile Include="Models\Home\HomePageViewModel.cs" />
+    <Compile Include="Models\Home\RealEstatesDetailsViewModel.cs" />
     <Compile Include="Models\Home\RealEstatesViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User\UserPageViewModel.cs" />
@@ -307,11 +306,6 @@
     </Content>
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\RealEstates\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\RealEstates\Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\RealEstates\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\RealEstates\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminMenu.cshtml" />
     <Content Include="Areas\Administration\Views\Cities\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Cities\Delete.cshtml" />
@@ -323,11 +317,6 @@
     <Content Include="Areas\Administration\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -374,9 +363,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
+    <Content Include="Views\Home\ForRent.cshtml" />
+    <Content Include="Views\Home\ForSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

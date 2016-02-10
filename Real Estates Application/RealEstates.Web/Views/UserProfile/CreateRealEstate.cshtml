@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create Real Estate", "UserProfile",null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreateRealEstate", "UserProfile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -106,19 +106,19 @@
         <div class="form-group">
             @Html.Label("Image1", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" id="Image1" name="upload" />
+                <input type="file" id="files_0" name="files[0]" />
             </div>
         </div>
         <div class="form-group">
             @Html.Label("Image2", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" id="Image2" name="upload" />
+                <input type="file" id="files_1" name="files[1]" />
             </div>
         </div>
         <div class="form-group">
             @Html.Label("Image3", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" id="Image3" name="upload" />
+                <input type="file" id="files_2" name="files[2]" />
             </div>
         </div>
 

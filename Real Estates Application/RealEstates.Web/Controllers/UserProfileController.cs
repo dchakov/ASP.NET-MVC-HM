@@ -23,6 +23,9 @@
         [Inject]
         public IRealEstatesService RealEstatesService { get; set; }
 
+        [Inject]
+        public IImageService ImageService { get; set; }
+
         [Authorize]
         public ActionResult MyProfile()
         {
@@ -64,41 +67,40 @@
         public ActionResult CreateRealEstate([Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,SquareMeter,UserId,CityId")] RealEstate realEstate,
             IEnumerable<HttpPostedFileBase> files)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                string userID = User.Identity.GetUserId();
+                realEstate.UserId = userID;
+                realEstate.CreatedOn = DateTime.Now;
+                int realEstateId = this.RealEstatesService.AddNew(realEstate, userID);
+
+                var supportedTypes = new[] { "jpg", "jpeg", "png" };
+                foreach (var file in files)
                 {
-                    var supportedTypes = new[] { "jpg", "jpeg", "png" };
-                    foreach (var file in files)
+                    if (file != null && file.ContentLength > 0)
                     {
-                        if (file != null && file.ContentLength > 0)
+                        var fileExt = Path.GetExtension(file.FileName).Substring(1);
+                        if (!supportedTypes.Contains(fileExt))
                         {
-                            var fileExt = Path.GetExtension(file.FileName).Substring(1);
-                            if (!supportedTypes.Contains(fileExt))
-                            {
-                                ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
-                                return View(realEstate);
-                            }
-
-                            string fileName = Path.GetFileName(file.FileName);
-                            string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                            //Image Service
-                            file.SaveAs(path);
+                            ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
+                            return View(realEstate);
                         }
+
+                        string fileName = Path.GetFileName(file.FileName);
+                        string path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName);
+                        Image newImage = new Image()
+                        {
+                            FileName = fileName,
+                            ImageUrl = path,
+                            RealEstateId = realEstateId
+                        };
+                        this.ImageService.AddNew(newImage, realEstateId);
+                        file.SaveAs(path);
                     }
-
-                    string userID = User.Identity.GetUserId();
-                    realEstate.UserId = userID;
-                    realEstate.CreatedOn = DateTime.Now;
-                    this.RealEstatesService.AddNew(realEstate, userID);
-                    return RedirectToAction("MyProfile");
                 }
-            }
-            catch (Exception)
-            {
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-            }
 
+                return RedirectToAction("MyProfile");
+            }
 
             ViewBag.CityId = new SelectList(this.CitiesService.GetAll(), "Id", "Name", realEstate.CityId);
             return View(realEstate);

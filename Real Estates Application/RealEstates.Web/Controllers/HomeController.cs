@@ -71,5 +71,15 @@
 
             return View();
         }
+
+        public ActionResult ForSale()
+        {
+            return View();
+        }
+
+        public ActionResult ForRent()
+        {
+            return View();
+        }
     }
 }
