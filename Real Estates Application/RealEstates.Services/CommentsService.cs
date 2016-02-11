@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Services
 {
     using Contracts;
+    using Data.Repositories;
+    using Model;
     using System;
     using System.Linq;
-    using Model;
-    using Data.Repositories;
 
     public class CommentsService : ICommentsService
     {

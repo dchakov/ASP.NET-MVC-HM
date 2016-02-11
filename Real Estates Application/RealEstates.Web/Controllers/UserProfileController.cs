@@ -29,21 +29,21 @@
         [Authorize]
         public ActionResult MyProfile()
         {
-            var currentUserId = User.Identity.GetUserId();
+            var currentUserId = this.User.Identity.GetUserId();
 
             if (currentUserId != null)
             {
-                return RedirectToAction("Index", new { Id = currentUserId });
+                return this.RedirectToAction("Index", new { Id = currentUserId });
             }
             else
             {
-                return RedirectToAction("Login", "Account");
+                return this.RedirectToAction("Login", "Account");
             }
         }
 
-        public ActionResult Index(string Id)
+        public ActionResult Index(string id)
         {
-            User appUser = this.UsersService.GetByUserId(Id);
+            User appUser = this.UsersService.GetByUserId(id);
 
             UserPageViewModel vm = new UserPageViewModel()
             {
@@ -53,23 +53,24 @@
                 Ratings = appUser.Ratings.ToList()
             };
 
-            return View(vm);
+            return this.View(vm);
         }
 
         public ActionResult CreateRealEstate()
         {
-            ViewBag.Cities = this.CitiesService.GetAll();
-            return View();
+            this.ViewBag.Cities = this.CitiesService.GetAll();
+            return this.View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateRealEstate([Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,SquareMeter,UserId,CityId")] RealEstate realEstate,
+        public ActionResult CreateRealEstate(
+            [Bind(Include = "Id,Title,Description,Address,Contact,ConstructionYear,SellingPrice,RentingPrice,Type,CreatedOn,Bedrooms,SquareMeter,UserId,CityId")] RealEstate realEstate,
             IEnumerable<HttpPostedFileBase> files)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                string userID = User.Identity.GetUserId();
+                string userID = this.User.Identity.GetUserId();
                 realEstate.UserId = userID;
                 realEstate.CreatedOn = DateTime.Now;
                 int realEstateId = this.RealEstatesService.AddNew(realEstate, userID);
@@ -82,12 +83,12 @@
                         var fileExt = Path.GetExtension(file.FileName).Substring(1);
                         if (!supportedTypes.Contains(fileExt))
                         {
-                            ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
-                            return View(realEstate);
+                            this.ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
+                            return this.View(realEstate);
                         }
 
                         string fileName = Path.GetFileName(file.FileName);
-                        string path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName);
+                        string path = Path.Combine(this.Server.MapPath("~/App_Data/Images"), fileName);
                         Image newImage = new Image()
                         {
                             FileName = fileName,
@@ -99,11 +100,11 @@
                     }
                 }
 
-                return RedirectToAction("MyProfile");
+                return this.RedirectToAction("MyProfile");
             }
 
-            ViewBag.CityId = new SelectList(this.CitiesService.GetAll(), "Id", "Name", realEstate.CityId);
-            return View(realEstate);
+            this.ViewBag.CityId = new SelectList(this.CitiesService.GetAll(), "Id", "Name", realEstate.CityId);
+            return this.View(realEstate);
         }
     }
 }

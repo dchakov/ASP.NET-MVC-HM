@@ -19,7 +19,7 @@
         private static Container DefaultContainer()
         {
             return new Container(cfg =>
-            {               
+            {
                 cfg.AddRegistry(new MvcRegistry());
             });
         }

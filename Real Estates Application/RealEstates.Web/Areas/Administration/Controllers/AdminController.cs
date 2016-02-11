@@ -13,8 +13,8 @@
         [ChildActionOnly]
         public ActionResult Menu()
         {
-            IEnumerable<string> Items = new List<string>() { "RealEstates", "Comments", "Cities", "Users" };
-            return this.PartialView("_AdminMenu", Items);
+            IEnumerable<string> items = new List<string>() { "RealEstates", "Comments", "Cities", "Users" };
+            return this.PartialView("_AdminMenu", items);
         }
     }
 }
