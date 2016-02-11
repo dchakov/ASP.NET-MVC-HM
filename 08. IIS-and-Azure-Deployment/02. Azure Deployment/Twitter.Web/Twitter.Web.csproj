@@ -343,10 +343,6 @@
     <Content Include="Content\kendo\images\kendoui.svg" />
     <Content Include="Content\kendo\images\wp8_icons.png" />
     <Content Include="Content\kendo\images\wp8_inverseicons.png" />
-    <Content Include="Content\kendo\kendo.black.min.css" />
-    <Content Include="Content\kendo\kendo.black.mobile.min.css" />
-    <Content Include="Content\kendo\kendo.blueopal.min.css" />
-    <Content Include="Content\kendo\kendo.blueopal.mobile.min.css" />
     <Content Include="Content\kendo\kendo.bootstrap.min.css" />
     <Content Include="Content\kendo\kendo.bootstrap.mobile.min.css" />
     <Content Include="Content\kendo\kendo.common-bootstrap.core.min.css" />
@@ -558,10 +554,6 @@
     <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.woff" />
     <Content Include="Content\kendo\images\kendoui.ttf" />
     <Content Include="Content\kendo\images\kendoui.woff" />
-    <Content Include="Content\kendo\kendo.black.min.css.map" />
-    <Content Include="Content\kendo\kendo.black.mobile.min.css.map" />
-    <Content Include="Content\kendo\kendo.blueopal.min.css.map" />
-    <Content Include="Content\kendo\kendo.blueopal.mobile.min.css.map" />
     <Content Include="Content\kendo\kendo.bootstrap.min.css.map" />
     <Content Include="Content\kendo\kendo.bootstrap.mobile.min.css.map" />
     <Content Include="Content\kendo\kendo.common-bootstrap.core.min.css.map" />
