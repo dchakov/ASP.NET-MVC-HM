@@ -575,6 +575,7 @@
     <Content Include="Content\kendo\kendo.common-office365.min.css.map" />
     <Content Include="Content\kendo\kendo.common.core.min.css.map" />
     <Content Include="Content\kendo\kendo.common.min.css.map" />
+    <None Include="Properties\PublishProfiles\Tweets.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

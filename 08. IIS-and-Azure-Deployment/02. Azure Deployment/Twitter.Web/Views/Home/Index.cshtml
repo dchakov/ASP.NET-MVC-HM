@@ -1,0 +1,36 @@
+﻿@model Twitter.Web.Models.HomePageViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <p>UserName: admin@site.com Password: admin</p>
+    <p>UserName: user1@site.com Password: user1</p>
+    <p>Add some text with tags: Pearl Jam are #cool band</p>
+</div>
+
+<div class="row">
+    <div class="row-fluid">
+        <span>
+            All tags:
+            @foreach (var tag in Model.Tags)
+            {
+                <span>
+                    @Html.ActionLink(tag.Name, "TweetsByTag", new { name = tag.Name })
+                </span>
+            }
+
+        </span>
+        <br/>
+        All Users:
+        <ul>
+            @foreach (var item in Model.Users)
+            {
+                <li>
+                    @Html.ActionLink(item.Name, "UserPage", new { id = item.Id })
+                </li>
+            }
+        </ul>
+    </div>
+</div>
