@@ -1,10 +1,10 @@
 ﻿namespace RealEstates.Services
 {
+    using Data.Repositories;
+    using RealEstates.Model;
     using RealEstates.Services.Contracts;
     using System;
     using System.Linq;
-    using RealEstates.Model;
-    using Data.Repositories;
 
     public class UsersService : IUsersService
     {

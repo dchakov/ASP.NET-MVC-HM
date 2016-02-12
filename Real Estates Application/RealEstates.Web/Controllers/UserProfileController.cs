@@ -4,7 +4,7 @@
     using Ninject;
     using RealEstates.Model;
     using RealEstates.Services.Contracts;
-    using RealEstates.Web.Models.User;
+    using RealEstates.Web.ViewModels.UserM;
     using System;
     using System.Collections.Generic;
     using System.IO;

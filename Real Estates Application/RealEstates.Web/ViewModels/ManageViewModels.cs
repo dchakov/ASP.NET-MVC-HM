@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace RealEstates.Web.Models
+namespace RealEstates.Web.ViewModels
 {
     public class IndexViewModel
     {

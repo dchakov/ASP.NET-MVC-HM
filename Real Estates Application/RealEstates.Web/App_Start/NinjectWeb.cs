@@ -11,7 +11,7 @@ namespace RealEstates.Web.App_Start
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
         }

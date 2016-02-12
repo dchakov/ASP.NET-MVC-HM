@@ -1,12 +1,14 @@
-﻿using RealEstates.Web.App_Start;
-using RealEstates.Web.Infrastructure;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-
-namespace RealEstates.Web
+﻿namespace RealEstates.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    using RealEstates.Web.App_Start;
+    using RealEstates.Web.Infrastructure.Mapping;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -18,9 +20,9 @@ namespace RealEstates.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbConfig.Initialize();
-                        
+
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute();
+            autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
         }
     }
 }

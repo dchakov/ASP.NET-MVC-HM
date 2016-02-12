@@ -4,7 +4,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using RealEstates.Model;
-    using RealEstates.Web.Models;
+    using RealEstates.Web.ViewModels;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;

@@ -17,10 +17,12 @@
         IDbSet<Rating> Ratings { get; set; }
 
         IDbSet<City> Cities { get; set; }
-                       
-        DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+        DbSet<TEntity> Set<TEntity>()
+            where TEntity : class;
+
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity)
+            where TEntity : class;
 
         int SaveChanges();
 

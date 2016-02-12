@@ -1,10 +1,11 @@
 ﻿namespace RealEstates.Data
 {
-    using System;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
+
     using Microsoft.AspNet.Identity.EntityFramework;
     using RealEstates.Model;
-    using System.Data.Entity.ModelConfiguration.Conventions;
+
     public class RealEstatesDbContext : IdentityDbContext<User>, IRealEstatesDbContext
     {
         public RealEstatesDbContext()

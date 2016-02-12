@@ -4,7 +4,6 @@
     using Data.Migrations;
     using System.Data.Entity;
 
-
     public class DbConfig
     {
         public static void Initialize()

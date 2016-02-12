@@ -3,16 +3,16 @@
 
 namespace RealEstates.Web.App_Start
 {
+    using Data;
+    using Data.Repositories;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using Ninject;
+    using Ninject.Extensions.Conventions;
+    using Ninject.Web.Common;
+    using Services.Web;
     using System;
     using System.Web;
 
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-    using Ninject.Extensions.Conventions;
-    using Data;
-    using Data.Repositories;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -65,6 +65,7 @@ namespace RealEstates.Web.App_Start
         {
             kernel.Bind(typeof(IRealEstatesDbContext)).To(typeof(RealEstatesDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(ICacheService)).To(typeof(HttpCacheService));
 
             kernel.Bind(b => b.From("RealEstates.Services")
                                 .SelectAllClasses()

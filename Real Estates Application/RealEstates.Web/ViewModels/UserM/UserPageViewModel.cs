@@ -1,4 +1,4 @@
-﻿namespace RealEstates.Web.Models.User
+﻿namespace RealEstates.Web.ViewModels.UserM
 {
     using Model;
     using System.Collections.Generic;

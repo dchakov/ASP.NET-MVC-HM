@@ -1,13 +1,14 @@
 ﻿namespace RealEstates.Web.Controllers
 {
     using Model;
-    using Models.Home;
-    using Models.User;
+    using ViewModels.Home;
+    using ViewModels.UserM;
     using Ninject;
     using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
 
     public class HomeController : BaseController
     {
@@ -20,28 +21,20 @@
         [Inject]
         public IRealEstatesService RealEstatesService { get; set; }
 
-        //[OutputCache(Duration = 15 * 60, Location = System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
-            //TODO automapper
-            IEnumerable<CityViewModel> cities = this.CitiesService.GetAll()
-                .AsQueryable()
-                .Select(c => new CityViewModel()
-                {
-                    Name = c.Name
-                });
+            IEnumerable<CityViewModel> cities = this.Cache.Get(
+                "cities",
+                () => this.CitiesService.GetAll()
+                .OrderBy(x => x.Name)
+                .To<CityViewModel>().ToList(), 15 * 60);
 
             IEnumerable<UserViewModel> users = this.UsersService.GetAll()
-                .AsQueryable()
-                .Select(user => new UserViewModel()
-                {
-                    Id = user.Id,
-                    Name = user.UserName,
-                    ImageUrl = user.ImageURL
-                });
+                .OrderBy(u => u.UserName)
+                .To<UserViewModel>().ToList();
 
-
-            IEnumerable<RealEstatesViewModel> realEstates = this.RealEstatesService.GetAll(0, 10)
+            IEnumerable<RealEstatesViewModel> realEstates =
+                this.RealEstatesService.GetAll(0, 10)
                 .AsQueryable()
                 .Select(r => new RealEstatesViewModel()
                 {
@@ -69,17 +62,17 @@
                 RealEstates = realEstates
             };
 
-            return View();
+            return this.View(vm);
         }
 
         public ActionResult ForSale()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult ForRent()
         {
-            return View();
+            return this.View();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace RealEstates.Web.Models.Home
+﻿namespace RealEstates.Web.ViewModels.Home
 {
-    using RealEstates.Web.Models.User;
+    using RealEstates.Web.ViewModels.UserM;
     using System.Collections.Generic;
 
     public class HomePageViewModel

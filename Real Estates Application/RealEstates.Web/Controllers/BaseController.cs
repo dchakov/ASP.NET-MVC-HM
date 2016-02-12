@@ -1,13 +1,12 @@
 ﻿namespace RealEstates.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+    using Ninject;
+    using Services.Web;
     using System.Web.Mvc;
 
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
-
+        [Inject]
+        public ICacheService Cache { get; set; }
     }
 }

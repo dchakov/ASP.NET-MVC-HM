@@ -1,8 +1,10 @@
-﻿namespace RealEstates.Web.Models.Home
+﻿namespace RealEstates.Web.ViewModels.Home
 {
+    using Infrastructure.Mapping;
+    using Model;
     using System;
 
-    public class RealEstatesViewModel
+    public class RealEstatesViewModel : IMapFrom<RealEstate>
     {
         public int Id { get; set; }
 
