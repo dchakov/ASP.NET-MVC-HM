@@ -10,5 +10,7 @@
         IQueryable<RealEstate> GetById(int id);
 
         int AddNew(RealEstate newRealEstate, string userId);
+
+        RealEstate GetByEncodedId(string id);
     }
 }

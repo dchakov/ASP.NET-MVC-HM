@@ -1,6 +1,6 @@
 ﻿namespace RealEstates.Web.ViewModels.Home
 {
-    public class RealEstatesDetailsViewModel
+    public class RealEstateDetailsViewModel
     {
     }
 }

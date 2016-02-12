@@ -110,6 +110,10 @@
       <Project>{e9452497-abc5-4a4d-a376-1480e7336cdd}</Project>
       <Name>RealEstates.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RealEstates.Services.Web\RealEstates.Services.Web.csproj">
+      <Project>{80e984bc-d941-4a46-ad2c-1626a47c46c0}</Project>
+      <Name>RealEstates.Services.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />

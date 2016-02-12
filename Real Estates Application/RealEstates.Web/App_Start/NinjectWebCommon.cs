@@ -66,6 +66,7 @@ namespace RealEstates.Web.App_Start
             kernel.Bind(typeof(IRealEstatesDbContext)).To(typeof(RealEstatesDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind(typeof(ICacheService)).To(typeof(HttpCacheService));
+            kernel.Bind(typeof(IIdentifierProvider)).To(typeof(IdentifierProvider));
 
             kernel.Bind(b => b.From("RealEstates.Services")
                                 .SelectAllClasses()

@@ -9,7 +9,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using Infrastructure.Mapping;
-
+    using System.Net;
     public class HomeController : BaseController
     {
         [Inject]
@@ -63,6 +63,22 @@
             };
 
             return this.View(vm);
+        }
+
+        public ActionResult ById(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            RealEstate realEstate = this.RealEstatesService.GetByEncodedId(id);
+            if (realEstate == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(realEstate);
         }
 
         public ActionResult ForSale()

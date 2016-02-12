@@ -2,6 +2,7 @@
 {
     using Infrastructure.Mapping;
     using Model;
+    using Services.Web;
     using System;
 
     public class RealEstatesViewModel : IMapFrom<RealEstate>
@@ -35,5 +36,14 @@
         public string City { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/RealEstate/{identifier.EncodeId(this.Id)}";
+            }
+        }
     }
 }

@@ -251,6 +251,7 @@
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RealEstatesController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -267,7 +268,7 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\Home\CityViewModel.cs" />
     <Compile Include="ViewModels\Home\HomePageViewModel.cs" />
-    <Compile Include="ViewModels\Home\RealEstatesDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Home\RealEstateDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\RealEstatesViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\UserM\UserPageViewModel.cs" />
@@ -303,6 +304,11 @@
     <Content Include="Areas\Administration\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
     <Content Include="RealEstates.Web.ruleset" />
+    <Content Include="Areas\Administration\Views\RealEstates\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\RealEstates\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -350,6 +356,7 @@
     <Content Include="Views\UserProfile\CreateRealEstate.cshtml" />
     <Content Include="Views\Home\ForRent.cshtml" />
     <Content Include="Views\Home\ForSale.cshtml" />
+    <Content Include="Views\Home\ById.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Images\" />
