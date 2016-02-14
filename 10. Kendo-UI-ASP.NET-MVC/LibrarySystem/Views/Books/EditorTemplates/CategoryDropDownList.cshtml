@@ -1,0 +1,8 @@
+﻿@using System.Collections
+@model LibrarySystem.ViewModels.CategoryGridViewModel
+
+@(Html.Kendo().DropDownListFor(m => m)
+    .DataValueField("Id")
+    .DataTextField("Name")
+    .BindTo((IEnumerable)ViewData["categories"])
+)

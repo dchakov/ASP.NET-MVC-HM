@@ -1,0 +1,85 @@
+﻿@using LibrarySystem.ViewModels;
+@model IQueryable<BookViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Books</h2>
+
+@(Html.Kendo()
+    .Grid<BookViewModel>()
+    .Name("grid-books")
+    .Columns(columns =>
+    {
+        columns.Bound(model => model.Title);
+        columns.Bound(model => model.Description).Visible(false);
+        columns.Bound(model => model.Author).Sortable(false);
+        columns.Bound(model => model.ISBN).Sortable(false);
+        columns.Bound(model => model.WebSite).ClientTemplate("<a href='"+ "#= WebSite #'>" + "#= WebSite #'</a>");
+        columns.Bound(model => model.Category).EditorTemplateName("CategoryDropDownList");
+        columns.Command(command =>
+        {
+            command.Edit();
+            command.Destroy();
+        });
+    })
+    .ToolBar(tool =>
+    {
+        tool.Create();
+    })
+    .Pageable(page =>
+    {
+        page.PreviousNext(true);
+        page.Numeric(true);
+    })
+    .Sortable(sort =>
+    {
+        sort.AllowUnsort(false);
+        sort.SortMode(GridSortMode.SingleColumn);
+    })
+    .Groupable()
+    .Filterable()
+    .Resizable(resize => resize.Columns(true))
+    .Navigatable()
+    .Editable(edit =>
+    {
+        edit.Mode(GridEditMode.InLine);
+    })
+    .Selectable(select => select.Mode(GridSelectionMode.Multiple).Type(GridSelectionType.Cell))
+    .Events(ev =>
+    {
+        ev.Change("selectRow");
+    })
+    .DataSource(data =>
+    {
+        data.Ajax()
+            .Model(m =>
+            {
+                m.Id(b => b.ID);
+                m.Field(b => b.Category).DefaultValue(
+                ViewData["categories"] as CategoryGridViewModel);
+            })
+            .PageSize(10)
+            .ServerOperation(true)
+            .Events(ev => ev.Error("errorAlert"))
+            .Create("CreateBook", "Books")
+            .Read("ReadBooks", "Books")
+            .Update("UpdateBook", "Books")
+            .Destroy("DeleteBook", "Books");
+    }))
+
+
+<script>
+    function selectRow() {
+        var selected = $.map(this.select(), function (item) {
+            return $(item).text();
+        });
+
+        $('#selected').text(selected);
+    }
+
+    function errorAlert() {
+        console.log("An error ocurred");
+    }
+</script>

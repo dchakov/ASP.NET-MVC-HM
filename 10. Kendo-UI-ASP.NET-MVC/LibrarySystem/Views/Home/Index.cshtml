@@ -1,0 +1,49 @@
+﻿@model LibrarySystem.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Books</h1>
+
+<form action="/Home/BookDetails" method="post">
+    @(Html.Kendo()
+            .AutoComplete()
+            .Name("serversideautocomplete")
+            .DataTextField("Title")
+            .Placeholder("Enter book")
+            .Events(ev =>
+                {
+                    ev.Select("selectAutoComplete");
+                })
+            .DataSource(data =>
+            {
+                data.Read(read =>
+                    {
+                        read.Action("GetAutocompleteData", "Home")
+                            .Data("onAdditionalData");
+                    })
+                    .ServerFiltering(true);
+            }))
+
+    <input type="submit"class="btn btn-default" />
+</form>
+
+
+<div class="row">
+    @(Html.Kendo().TreeView()
+    .Name("BooksTreeView")
+    .BindTo(this.Model.TreeViewItems)
+    )
+</div>
+
+<script>
+    function onAdditionalData() {
+        return {
+            text: $('#serversideautocomplete').val(),
+        }
+    }
+
+    function selectAutoComplete(e) {
+        console.log(this.dataItem(e.item.index()).Id)
+    }
+</script>
