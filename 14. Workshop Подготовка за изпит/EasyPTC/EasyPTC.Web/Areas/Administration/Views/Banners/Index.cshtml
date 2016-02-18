@@ -1,0 +1,42 @@
+﻿@using EasyPTC.Web.Areas.Administration.ViewModels.Banners
+@using Kendo.Mvc.UI;
+
+@{
+    ViewBag.Title = "Banners";
+}
+
+@(Html.Kendo().Grid<BannerViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+
+      columns.Bound(c => c.Id);
+      columns.Bound(c => c.ImageUrl);
+      columns.Bound(c => c.Name);
+      columns.Bound(c => c.Url);
+      columns.Bound(c => c.AvailableClicks);
+      columns.Command(command => command.Edit()).Title("Change");
+      columns.Command(command => command.Destroy()).Title("Change");
+    })
+      .ColumnMenu()
+      .Pageable(page => page.Refresh(true))
+      .Sortable()
+      .Groupable()
+      .Filterable()
+      .Navigatable()
+      .ToolBar(toolbar =>
+      {
+        toolbar.Create();
+    })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .ServerOperation(true)
+          .Read(read => read.Action("Read", "Banners"))
+          .Create(create => create.Action("Create", "Banners"))
+          .Update(update => update.Action("Update", "Banners"))
+          .Destroy(destroy => destroy.Action("Destroy", "Banners"))
+      )
+)
