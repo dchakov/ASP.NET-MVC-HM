@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ForumSystem.Web.ViewModels.Home.IndexBlogPostViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container">
+    @foreach (var post in Model)
+    {
+        <div class="row">
+            <div class="col-md-1">
+                <div class="well text-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@post.Id" data-action="up"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></div>
+                    }
+                    <div class="row" data-id="@post.Id" data-action="votesCount">@post.VotesCount</div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@post.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="well text-center">
+                    <div class="row">0</div>
+                    <div class="row">answers</div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <h4>
+                        <a href="@post.Url">@post.Title</a>
+                    </h4>
+                </div>
+                <div class="row">
+                    <p>asked 35 minutes ago in Kids Academy - програмиране за деца by a.dimitrov04 (40 points)</p>
+                </div>
+                <div class="row">
+                    @foreach (var tag in post.Tags)
+                    {
+                        <span class="label label-default">@tag.Name</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr />
+    }
+</div>
+<style>
+    div[data-action="up"], div[data-action="down"] {
+        cursor: pointer;
+    }
+</style>
+@section scripts{
+    <script>
+        $("div[data-action='up'").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, 1);
+        });
+        $("div[data-action='down'").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, -1);
+        });
+
+        function voteClick(id, voteType) {
+
+
+            $.post("/Votes/Vote", { postId: id, voteType: voteType },
+                function (data) {
+                    var newVotesCount = data.Count;
+                    $("div[data-action='votesCount'][data-id='" + id + "']").html(newVotesCount)
+                });
+        }
+    </script>
+}

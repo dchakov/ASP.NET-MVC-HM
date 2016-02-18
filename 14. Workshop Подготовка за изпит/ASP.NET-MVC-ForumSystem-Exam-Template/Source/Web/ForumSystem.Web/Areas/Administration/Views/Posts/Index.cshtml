@@ -1,0 +1,35 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<ForumSystem.Web.Areas.Administration.ViewModels.PostViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.ContentSanitized).ClientTemplate("#=Content#");
+          columns.Bound(c => c.AuthorName);
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Bound(c => c.ModifiedOn);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+          toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Posts_Read", "Posts"))
+          .Create(create => create.Action("Posts_Create", "Posts"))
+          .Update(update => update.Action("Posts_Update", "Posts"))
+          .Destroy(destroy => destroy.Action("Posts_Destroy", "Posts"))
+      )
+)
